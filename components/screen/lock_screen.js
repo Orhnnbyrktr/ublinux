@@ -1,4 +1,5 @@
 import React from 'react';
+import tailwind from 'tailwindcss';
 import Clock from '../util components/clock';
 
 export default function LockScreen(props) {
