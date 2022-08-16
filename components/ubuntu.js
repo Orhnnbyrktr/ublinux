@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BootingScreen from './screen/booting_screen';
 import Desktop from './screen/desktop';
-import LockScreen from './screen/lock_screen';
 import Navbar from './screen/navbar';
 import ReactGA from 'react-ga';
 
@@ -9,13 +8,12 @@ export default class Ubuntu extends Component {
 	constructor() {
 		super();
 		this.state = {
-			screen_locked: false,
 			bg_image_name: 'wall-2',
 			booting_screen: true,
 			shutDownScreen: false
 		};
 	}
-
+        ReactGA.pageview('/desktop');
 	componentDidMount() {
 		this.getLocalData();
 	}
@@ -48,37 +46,10 @@ export default class Ubuntu extends Component {
 		if (shut_down !== null && shut_down !== undefined && shut_down === 'true') this.shutDown();
 		else {
 			// Get previous lock screen state
-			let screen_locked = localStorage.getItem('screen-locked');
-			if (screen_locked !== null && screen_locked !== undefined) {
-				this.setState({ screen_locked: screen_locked === 'true' ? true : false });
 			}
 		}
-	};
-
-	lockScreen = () => {
-		// google analytics
-		ReactGA.pageview('/lock-screen');
-		ReactGA.event({
-			category: `Screen Change`,
-			action: `Set Screen to Locked`
-		});
-
-		document.getElementById('status-bar').blur();
-		setTimeout(() => {
-			this.setState({ screen_locked: true });
-		}, 100); // waiting for all windows to close (transition-duration)
-		localStorage.setItem('screen-locked', true);
-	};
-
-	unLockScreen = () => {
-		ReactGA.pageview('/desktop');
-
-		window.removeEventListener('click', this.unLockScreen);
-		window.removeEventListener('keypress', this.unLockScreen);
-
-		this.setState({ screen_locked: false });
-		localStorage.setItem('screen-locked', false);
-	};
+	}
+		
 
 	changeBackgroundImage = (img_name) => {
 		this.setState({ bg_image_name: img_name });
