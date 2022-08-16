@@ -11,7 +11,7 @@ import { displayTerminalCalc } from './components/apps/calc';
 const apps = [
     {
         id: "chrome",
-        title: "Google Chrome",
+        title: "Chromium",
         icon: './themes/Yaru/apps/chrome.png',
         disabled: false,
         favourite: true,
@@ -20,16 +20,16 @@ const apps = [
     },
     {
         id: "calc",
-        title: "Calc",
+        title: "Calculator",
         icon: './themes/Yaru/apps/calc.png',
         disabled: false,
         favourite: true,
-        desktop_shortcut: false,
+        desktop_shortcut: true,
         screen: displayTerminalCalc,
     },
     {
         id: "about-vivek",
-        title: "About Vivek",
+        title: "About System",
         icon: './themes/Yaru/system/user-home.png',
         disabled: false,
         favourite: true,
@@ -42,7 +42,7 @@ const apps = [
         icon: './themes/Yaru/apps/vscode.png',
         disabled: false,
         favourite: true,
-        desktop_shortcut: false,
+        desktop_shortcut: true,
         screen: displayVsCode,
     },
     {
@@ -51,16 +51,16 @@ const apps = [
         icon: './themes/Yaru/apps/bash.png',
         disabled: false,
         favourite: true,
-        desktop_shortcut: false,
+        desktop_shortcut: true,
         screen: displayTerminal,
     },
     {
         id: "spotify",
-        title: "Spotify",
+        title: "Spotify Web",
         icon: './themes/Yaru/apps/spotify.png',
         disabled: false,
         favourite: true,
-        desktop_shortcut: false,
+        desktop_shortcut: true,
         screen: displaySpotify, // India Top 50 Playlist 😅
     },
     {
@@ -80,15 +80,6 @@ const apps = [
         favourite: false,
         desktop_shortcut: true,
         screen: displayTrash,
-    },
-    {
-        id: "gedit",
-        title: "Contact Me",
-        icon: './themes/Yaru/apps/gedit.png',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: true,
-        screen: displayGedit,
     },
 ]
 
